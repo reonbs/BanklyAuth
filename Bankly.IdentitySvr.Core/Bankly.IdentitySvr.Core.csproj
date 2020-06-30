@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Config\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bankly.IdentitySvr.Respository\Bankly.IdentitySvr.Respository.csproj" />
