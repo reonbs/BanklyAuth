@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bankly.IdentitySvr.Core.Config;
+using Bankly.IdentitySvr.Core.Services;
 using Bankly.IdentitySvr.CustomConfiguration;
 using Bankly.IdentitySvr.Respository;
 using Bankly.IdentitySvr.Respository.Migrations.Users;
@@ -87,6 +88,9 @@ namespace Bankly.IdentitySvr
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+            services.AddTransient<IResponseService, ResponseService>();
+            services.AddTransient<IUserService, UserService>();
+
             services.AddAuthentication();
 
             services.AddControllers();
@@ -106,9 +110,10 @@ namespace Bankly.IdentitySvr
 
             app.UseRouting();
 
+            //app.UseAuthorization();
+
             app.UseIdentityServer();
 
-            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

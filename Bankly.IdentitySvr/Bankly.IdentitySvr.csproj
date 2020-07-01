@@ -15,5 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomConfiguration\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>
