@@ -19,7 +19,6 @@ namespace Bankly.IdentitySvr.Respository.DBContextConfig
 
         public TContext CreateDbContext(string[] args)
         {
-            Console.WriteLine($"reo >>>>>>>>>>>>>>>>> (1) ran");
             return Create(
                 Directory.GetCurrentDirectory(),
                 Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
@@ -34,9 +33,7 @@ namespace Bankly.IdentitySvr.Respository.DBContextConfig
                 Environment.GetEnvironmentVariable(
                     "ASPNETCORE_ENVIRONMENT");
 
-            Console.WriteLine($"reo >>>>>>>>>>>>>>>>> (2) ran");
-
-
+            //runs only in designtime
             var basePath = "/Users/ren-ekene/Documents/reoproj/banklyidserver/BanklyAuth/Bankly.IdentitySvr"; //AppContext.BaseDirectory;
 
             return Create(basePath, environmentName, connectionStringName, migrationsAssemblyName);
@@ -44,8 +41,7 @@ namespace Bankly.IdentitySvr.Respository.DBContextConfig
 
         private TContext Create(string basePath, string environmentName, string connectionStringName, string migrationsAssemblyName)
         {
-            Console.WriteLine($"reo >>>>>>>>>>>>>>>>> (3) ran");
-
+            //runs in design time
             var basePath2 = "/Users/ren-ekene/Documents/reoproj/BanklyAuth/Bankly.IdentitySvr";
 
             var builder = new ConfigurationBuilder()
@@ -71,8 +67,6 @@ namespace Bankly.IdentitySvr.Respository.DBContextConfig
 
         private TContext CreateWithConnectionString(string connectionString, string migrationsAssemblyName)
         {
-            Console.WriteLine($"reo >>>>>>>>>>>>>>>>> (4) ran");
-
             if (string.IsNullOrEmpty(connectionString))
                 throw new ArgumentException(
              $"{nameof(connectionString)} is null or empty.",

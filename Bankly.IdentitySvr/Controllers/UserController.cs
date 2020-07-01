@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bankly.IdentitySvr.Controllers
 {
+    
     [Route("/api/[controller]")]
     public class UserController:ControllerBase
     {

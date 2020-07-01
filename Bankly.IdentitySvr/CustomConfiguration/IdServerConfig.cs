@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IdentityServer4;
 using IdentityServer4.Models;
 
 namespace Bankly.IdentitySvr.CustomConfiguration
@@ -10,7 +11,11 @@ namespace Bankly.IdentitySvr.CustomConfiguration
         {
             return new List<ApiResource>
             {
-                new ApiResource("complianceapi","compliance  api for bankly")
+                new ApiResource("complianceapi")
+                {
+                    Scopes = { "complianceapi" }
+                }
+
             };
         }
 
@@ -18,6 +23,7 @@ namespace Bankly.IdentitySvr.CustomConfiguration
            new ApiScope[]
            {
                 new ApiScope("complianceapi"),
+                
            };
 
         public static IEnumerable<IdentityResource> GetIdentityResources()
@@ -43,6 +49,7 @@ namespace Bankly.IdentitySvr.CustomConfiguration
                     },
                     AllowedScopes = { "complianceapi" },
                     RequireConsent =false
+                    
 
                 },
 
@@ -54,7 +61,23 @@ namespace Bankly.IdentitySvr.CustomConfiguration
                     {
                         new Secret("8783784878498jjhjhdjhjh8783pj".Sha256())
                     },
-                    AllowedScopes = { "complianceapi" },
+                    AllowedScopes = { "complianceapi" , "openid", "profile"},
+                    RequireConsent =false
+
+                },
+
+                 new Client
+                {
+                    ClientId = "ro.complianceapi",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    ClientSecrets =
+                    {
+                        new Secret("8783784878498jjhjhdjhjh8783pj".Sha256())
+                    },
+                    AllowedScopes = {
+                         IdentityServerConstants.StandardScopes.OpenId,
+                         IdentityServerConstants.StandardScopes.Profile,
+                     },
                     RequireConsent =false
 
                 }

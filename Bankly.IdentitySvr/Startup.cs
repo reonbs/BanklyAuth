@@ -58,6 +58,8 @@ namespace Bankly.IdentitySvr
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
 
+                options.EmitStaticAudienceClaim = true;
+
                 options.UserInteraction = new UserInteractionOptions
                 {
                     LogoutUrl = "/Account/Logout",
@@ -110,9 +112,12 @@ namespace Bankly.IdentitySvr
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            //app.UseAuthorization(); 1
 
             app.UseIdentityServer();
+
+            //app.UseAuthorization(); //2
+
 
 
             app.UseEndpoints(endpoints =>
