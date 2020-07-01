@@ -41,7 +41,9 @@ namespace Bankly.IdentitySvr.CustomConfiguration
                     {
                         new Secret("A53j98983nbf8hf83fjjf0383983".Sha256())
                     },
-                    AllowedScopes = { "complianceapi" }
+                    AllowedScopes = { "complianceapi" },
+                    RequireConsent =false
+
                 },
 
                  new Client
@@ -52,7 +54,8 @@ namespace Bankly.IdentitySvr.CustomConfiguration
                     {
                         new Secret("8783784878498jjhjhdjhjh8783pj".Sha256())
                     },
-                    AllowedScopes = { "complianceapi" }
+                    AllowedScopes = { "complianceapi" },
+                    RequireConsent =false
 
                 }
             };

@@ -46,7 +46,7 @@ namespace Bankly.IdentitySvr.Respository.DBContextConfig
         {
             Console.WriteLine($"reo >>>>>>>>>>>>>>>>> (3) ran");
 
-            var basePath2 = "/Users/ren-ekene/Documents/reoproj/banklyidserver/BanklyAuth/Bankly.IdentitySvr";
+            var basePath2 = "/Users/ren-ekene/Documents/reoproj/BanklyAuth/Bankly.IdentitySvr";
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(basePath2)
